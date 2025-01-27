@@ -1,15 +1,29 @@
-import { Link } from '@/i18n/routing';
+'use client';
+import { useTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
 
-type Props = {
-  params: Promise<{ locale: string }>;
-};
+export default function HomePage() {
+  const { theme, setTheme } = useTheme();
+  const [isMounted, setIsMounted] = useState(false);
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
-export default async function HomePage({ params }: Props) {
-  const { locale } = await params;
+  if (!isMounted) {
+    return null;
+  }
+
   return (
     <div>
-      <h1>{locale}</h1>
-      <Link href="/about">{locale}</Link>
+      {theme ? (
+        <div>
+          The current theme is: {theme}
+          <button onClick={() => setTheme('light')}>Light Mode</button>
+          <button onClick={() => setTheme('dark')}>Dark Mode</button>
+        </div>
+      ) : (
+        <div>Loading theme...</div> // Add loading indication until theme is determined
+      )}
     </div>
   );
 }

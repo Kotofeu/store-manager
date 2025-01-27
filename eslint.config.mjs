@@ -78,7 +78,8 @@ const eslintConfig = [
           'newlines-between': 'always'
         }
       ],
-      'prettier/prettier': 'error'
+      'prettier/prettier': 'error',
+      'linebreak-style': ['error', 'windows']
     },
     settings: {
       'import/resolver': {

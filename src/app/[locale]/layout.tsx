@@ -1,6 +1,7 @@
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server';
 import { ReactNode } from 'react';
+import { ThemeProvider } from 'next-themes';
 
 import { notFound, routing } from '@/i18n/routing';
 
@@ -25,16 +26,17 @@ export async function generateMetadata({ params }: Omit<Props, 'children'>) {
       name: t('authorName'),
       url: t('authorUrl')
     },
+    metadataBase: new URL(process.env.NEXT_PUBLIC_URL || 'https://localhost:4000'),
     openGraph: {
       title: t('title'),
       description: t('description'),
-      url: t('url'),
+      url: `/${locale}`,
       siteName: t('siteName'),
       locale: locale,
       type: 'website',
       images: [
         {
-          url: t('previewImageUrl'),
+          url: '/preview-image.jpg',
           alt: t('description')
         }
       ]
@@ -45,7 +47,7 @@ export async function generateMetadata({ params }: Omit<Props, 'children'>) {
       description: t('description'),
       images: [
         {
-          url: t('previewImageUrl'),
+          url: '/preview-image.jpg',
           alt: t('description')
         }
       ]
@@ -62,15 +64,15 @@ export async function generateMetadata({ params }: Omit<Props, 'children'>) {
         addressCountry: t('addressCountry')
       },
       email: t('email'),
-      url: t('url')
+      url: `/${locale}`
     },
     alternateUrls: {
-      ru: t('alternateUrlRu'),
-      en: t('alternateUrlEn')
+      ru: '/ru',
+      en: '/en'
     }
   };
 }
-export default async function LocaleLayout({ children, params }: Props) {
+export default async function RootLayout({ children, params }: Readonly<Props>) {
   const { locale } = await params;
   if (!routing.locales.includes(locale as any)) {
     notFound();
@@ -78,9 +80,11 @@ export default async function LocaleLayout({ children, params }: Props) {
   setRequestLocale(locale);
   const messages = await getMessages();
   return (
-    <html lang={locale}>
+    <html lang={locale} suppressHydrationWarning>
       <body>
-        <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
+        <ThemeProvider>
+          <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

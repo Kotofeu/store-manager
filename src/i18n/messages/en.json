@@ -5,15 +5,14 @@
     "keywords": "password storage, import from Excel, export to Excel, file storage, structuring, archiving, two-factor authentication, file sharing, notes, notifications",
     "authorName": "Daniil Petrov",
     "authorUrl": "https://t.me/daniiilp",
-    "url": "http://localhost:3000/en",
     "siteName": "Store Manager",
-    "previewImageUrl": "http://localhost:3000/en/preview-image.jpg",
-    "twitterImageUrl": "https://yoursite.com/twitter-image.jpg",
     "jobTitle": "Frontend developer",
     "addressLocality": "Kaliningrad",
     "addressCountry": "Russia",
-    "email": "cras.petrov@yandex.ru",
-    "alternateUrlRu": "http://localhost:3000/ru",
-    "alternateUrlEn": "http://localhost:3000/en"
+    "email": "cras.petrov@yandex.ru"
+  },
+  "Manifest": {
+    "name": "Store Manager",
+    "short_name": "SM"
   }
 }
