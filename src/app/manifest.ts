@@ -134,6 +134,11 @@ export default async function manifest(): Promise<MetadataRoute.Manifest> {
         src: 'icons/ms-icon-310x310.png',
         sizes: '310x310',
         type: 'image/png'
+      },
+      {
+        src: 'icons/favicon.ico',
+        sizes: 'any',
+        type: 'image/x-icon'
       }
     ],
     screenshots: [
