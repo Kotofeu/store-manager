@@ -13,6 +13,7 @@
   },
   "Manifest": {
     "name": "Store Manager",
-    "short_name": "SM"
+    "short_name": "SM",
+    "description": "Store Manager is a reliable solution for securely storing passwords, files, and notes with the ability to import and export data. Ensure the safety of your information with two-factor authentication and access settings."
   }
 }

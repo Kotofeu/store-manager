@@ -1,15 +1,27 @@
 import { MetadataRoute } from 'next';
 import { getTranslations } from 'next-intl/server';
 
+/*
+  TODO
+  https://developer.mozilla.org/en-US/docs/Web/Manifest/file_handlers
+  1. Поменять id
+  2. Поменять file_handlers
+  3. Поменять цвета theme_color и background_color
+  4. Загрузить новые скриншоты и иконки
+  5. Поменять описание и категории
+  6. Подумать над orientation
+  7. Добавить манифест для ru?
+  8. Настроить share_target для запросов и scope
+  9. Настроить страницы shortcuts
+*/
 export default async function manifest(): Promise<MetadataRoute.Manifest> {
   const locale = 'en';
   const t = await getTranslations({ locale, namespace: 'Manifest' });
-
   return {
+    //id: 'https://localhost:4000',
     name: t('name'),
     short_name: t('short_name'),
     start_url: '/',
-    display: 'standalone',
     theme_color: '#101E33',
     background_color: '#ffffff',
     icons: [
@@ -123,6 +135,85 @@ export default async function manifest(): Promise<MetadataRoute.Manifest> {
         sizes: '310x310',
         type: 'image/png'
       }
-    ]
+    ],
+    screenshots: [
+      {
+        src: 'images/screenshot-wide.png',
+        sizes: '1280x800',
+        type: 'image/png',
+        form_factor: 'wide'
+      },
+      {
+        src: 'images/screenshot-portrait.png',
+        sizes: '800x1280',
+        type: 'image/png',
+        form_factor: 'narrow'
+      }
+    ],
+    dir: 'ltr',
+    display_override: ['window-controls-overlay', 'standalone', 'minimal-ui'],
+    display: 'standalone',
+    file_handlers: [
+      {
+        action: '/handle-file',
+        accept: {
+          'image/png': ['.png'],
+          'image/jpeg': ['.jpg', '.jpeg', '.gif', '.webp']
+        }
+      }
+    ],
+    categories: [
+      'Security',
+      'Data Storage',
+      'Productivity',
+      'Password Managers',
+      'Notes',
+      'Archiving',
+      'Information Management'
+    ],
+    description: t('description'),
+    orientation: 'portrait-primary',
+    protocol_handlers: [
+      {
+        protocol: 'web+taskmanager',
+        url: '/task?url=%s'
+      },
+      {
+        protocol: 'mailto',
+        url: '/send-email?to=%s'
+      },
+      {
+        protocol: 'tel',
+        url: '/call?number=%s'
+      },
+      {
+        protocol: 'sms',
+        url: '/send-sms?to=%s'
+      },
+      {
+        protocol: 'web+notes',
+        url: '/note?content=%s'
+      },
+      {
+        protocol: 'web+calendar',
+        url: '/event?date=%s'
+      },
+      {
+        protocol: 'web+twitter',
+        url: '/share-twitter?url=%s'
+      },
+      {
+        protocol: 'web+facebook',
+        url: '/share-facebook?url=%s'
+      },
+      {
+        protocol: 'web+file',
+        url: '/open-file?file=%s'
+      }
+    ],
+    launch_handler: {
+      client_mode: ['navigate-new', 'auto']
+    },
+    lang: locale
   };
 }

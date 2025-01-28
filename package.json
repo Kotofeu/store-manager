@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev --turbopack --experimental-https -p 4000",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 4000",
     "lint:check": "next lint",
     "lint:fix": "next lint --fix",
     "stylelint:check": "npx stylelint **/*.scss",

@@ -10,7 +10,7 @@ export default async function GlobalNotFound() {
     <html lang={routing.defaultLocale} suppressHydrationWarning>
       <body>
         <NextIntlClientProvider messages={messages}>
-          <ThemeProvider>эывфы</ThemeProvider>
+          <ThemeProvider></ThemeProvider>
         </NextIntlClientProvider>
       </body>
     </html>
