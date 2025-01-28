@@ -18,7 +18,7 @@ export default async function manifest(): Promise<MetadataRoute.Manifest> {
   const locale = 'en';
   const t = await getTranslations({ locale, namespace: 'Manifest' });
   return {
-    //id: 'https://localhost:4000',
+    id: 'https://localhost:4000',
     name: t('name'),
     short_name: t('short_name'),
     start_url: '/',
@@ -136,7 +136,7 @@ export default async function manifest(): Promise<MetadataRoute.Manifest> {
         type: 'image/png'
       },
       {
-        src: 'icons/favicon.ico',
+        src: 'favicon.ico',
         sizes: 'any',
         type: 'image/x-icon'
       }

@@ -2,7 +2,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { ThemeProvider } from 'next-themes';
 
-import { routing } from '@/i18n/routing';
+import { routing } from '@/shared/i18n';
 
 export default async function GlobalNotFound() {
   const messages = await getMessages();

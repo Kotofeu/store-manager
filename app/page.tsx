@@ -1,4 +1,4 @@
-import { redirect } from '@/i18n/routing';
+import { redirect } from '@/shared/i18n';
 
 export default function RootPage() {
   redirect({ href: '/', locale: '/en' });

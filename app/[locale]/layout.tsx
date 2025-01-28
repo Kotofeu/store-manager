@@ -3,7 +3,7 @@ import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server
 import { ReactNode } from 'react';
 import { ThemeProvider } from 'next-themes';
 
-import { notFound, routing } from '@/i18n/routing';
+import { notFound, routing } from '@/shared/i18n';
 
 type Props = {
   children: ReactNode;

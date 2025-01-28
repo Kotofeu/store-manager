@@ -60,15 +60,15 @@ const eslintConfig = [
         'error',
         {
           name: 'next/link',
-          message: 'Используйте Link из @/i18n/routing вместо next/link.'
+          message: 'Используйте Link из @/shared/config/i18n вместо next/link.'
         },
         {
           name: 'next/router',
-          message: 'Используйте функции, доступные в @/i18n/routing.'
+          message: 'Используйте функции, доступные в @/shared/config/i18n.'
         },
         {
           name: 'next/navigation',
-          message: 'Используйте функции, доступные в @/i18n/routing.'
+          message: 'Используйте функции, доступные в @/shared/config/i18n.'
         }
       ],
       'import/order': [

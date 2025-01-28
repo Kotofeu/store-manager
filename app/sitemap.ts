@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next';
 
-import { Locale, getPathname, routing } from '@/i18n/routing';
+import { Locale, getPathname, routing } from '@/shared/i18n';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [getEntry('/', 'always', 1), getEntry('/about', 'monthly', 0.7)];
