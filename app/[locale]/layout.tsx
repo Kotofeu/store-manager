@@ -4,6 +4,7 @@ import { ReactNode } from 'react';
 import { ThemeProvider } from 'next-themes';
 
 import { notFound, routing } from '@/shared/i18n';
+import { titleFont, textFont } from '@/app/fonts';
 
 type Props = {
   children: ReactNode;
@@ -80,7 +81,7 @@ export default async function RootLayout({ children, params }: Readonly<Props>) 
   setRequestLocale(locale);
   const messages = await getMessages();
   return (
-    <html lang={locale} suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning className={`${titleFont.variable} ${textFont.variable}`}>
       <body>
         <ThemeProvider>
           <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>

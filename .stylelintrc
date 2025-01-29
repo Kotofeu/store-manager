@@ -15,6 +15,7 @@
     "@stylistic/string-quotes": "single",
     "@stylistic/color-hex-case": "lower",
     "@stylistic/no-extra-semicolons": true,
-    "@stylistic/no-eol-whitespace": true
+    "@stylistic/no-eol-whitespace": true,
+    "color-hex-length": null
   }
 }

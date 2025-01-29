@@ -37,9 +37,10 @@ dd {
 body {
   position: relative;
   width: 100%;
-  overflow-x: hidden;
-  overflow-y: scroll;
-  font-size: 14px
+  overflow: hidden scroll;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: var(--text-font);
 }
 
 ul[class],
@@ -47,14 +48,15 @@ ol[class] {
   list-style: none;
 }
 
-a:not([class]) {
-  text-decoration-skip-ink: auto;
-}
-
 a {
   text-decoration: none;
   font: inherit;
   color: inherit;
+  font-family: var(--title-font);
+}
+
+a:not([class]) {
+  text-decoration-skip-ink: auto;
 }
 
 img {
@@ -73,31 +75,12 @@ select {
   font: inherit;
   line-height: inherit;
   margin: 0;
-}
-
-
-::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-}
-
-::-webkit-scrollbar {
-  width: 9px;
-  height: 8px;
-}
-
-::-webkit-scrollbar-thumb {
-  border-radius: 6px;
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
-}
-
-body {
-  font-weight: 400;
+  font-family: var(--title-font);
 }
 
 p {
   line-height: 1.6em;
 }
-
 
 h1,
 h2,
@@ -106,7 +89,8 @@ h4,
 h5,
 h6 {
   font-weight: 600;
-
+  font-family: var(--title-font);
+  line-height: 1.1em;
 }
 
 *,
@@ -115,11 +99,4 @@ h6 {
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
   word-break: break-word;
-}
-
-
-h2 {
-  font-size: 36px;
-  font-weight: 600;
-  line-height: 1.1em;
 }
