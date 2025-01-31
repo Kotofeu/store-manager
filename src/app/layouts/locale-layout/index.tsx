@@ -5,7 +5,7 @@ import { ThemeProvider } from 'next-themes';
 
 import { notFound, routing } from '@/shared/i18n';
 import { titleFont, textFont } from '@/app/fonts';
-import { getMetadata } from '@/shared/lib';
+import { getDefaultMetadata } from '@/shared/lib';
 
 type Props = {
   children: ReactNode;
@@ -18,10 +18,14 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: Omit<Props, 'children'>) {
   const { locale } = await params;
-  return getMetadata('/', locale, routing.locales as unknown as string[]);
+  return getDefaultMetadata(
+    '/',
+    locale,
+    routing.locales.map(loc => loc)
+  );
 }
 
-export async function LocateLayout({ children, params }: Readonly<Props>) {
+export async function LocateLayout({ children, params }: Props) {
   const { locale } = await params;
   if (!routing.locales.includes(locale as any)) {
     notFound();

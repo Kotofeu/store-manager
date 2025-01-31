@@ -18,12 +18,12 @@ export default async function manifest(): Promise<MetadataRoute.Manifest> {
   const locale = 'en';
   const t = await getTranslations({ locale, namespace: 'Manifest' });
   return {
-    id: 'https://localhost:4000',
+    //id: 'https://localhost:4000',
     name: t('name'),
     short_name: t('short_name'),
     start_url: '/',
-    theme_color: '#101E33',
-    background_color: '#ffffff',
+    theme_color: '#121212',
+    background_color: '#121212',
     icons: [
       {
         src: 'icons/android-icon-36x36.png',

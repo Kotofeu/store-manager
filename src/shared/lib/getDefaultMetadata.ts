@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { AlternateURLs } from 'next/dist/lib/metadata/types/alternative-urls-types';
 
-export const getMetadata = async (
+export const getDefaultMetadata = async (
   path: string = '/',
   locale: string = 'en',
   allLocales: string[] = []
