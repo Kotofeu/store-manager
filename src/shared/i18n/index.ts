@@ -1,11 +1,1 @@
-export {
-  Link,
-  redirect,
-  usePathname,
-  useRouter,
-  getPathname,
-  routing,
-  notFound,
-  type Locale,
-  type Pathnames
-} from './routing';
+export { Link, redirect, usePathname, useRouter, getPathname, routing, type Locale, type Pathnames } from './routing';

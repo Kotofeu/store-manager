@@ -65,10 +65,6 @@ const eslintConfig = [
         {
           name: 'next/router',
           message: 'Используйте функции, доступные в @/shared/config/i18n.'
-        },
-        {
-          name: 'next/navigation',
-          message: 'Используйте функции, доступные в @/shared/config/i18n.'
         }
       ],
       'import/order': [

@@ -2,8 +2,9 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale } from 'next-intl/server';
 import { ReactNode } from 'react';
 import { ThemeProvider } from 'next-themes';
+import { notFound } from 'next/navigation';
 
-import { notFound, routing } from '@/shared/i18n';
+import { routing } from '@/shared/i18n';
 import { titleFont, textFont } from '@/app/fonts';
 import { getDefaultMetadata } from '@/shared/lib';
 

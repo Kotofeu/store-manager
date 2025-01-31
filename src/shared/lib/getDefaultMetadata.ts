@@ -11,13 +11,13 @@ export const getDefaultMetadata = async (
   const t = await getTranslations({ locale, namespace: 'Metadata' });
   const alternateURLs: AlternateURLs = {
     canonical: '/',
-    languages: allLocales.reduce((acc: { [key: string]: string }, lang) => {
-      if (lang === locale) {
+    languages: {
+      ...allLocales.reduce((acc: { [key: string]: string }, lang) => {
+        acc[lang] = `/${lang}${path}`;
         return acc;
-      }
-      acc[lang] = `/${lang}/${path}`;
-      return acc;
-    }, {})
+      }, {}),
+      'x-default': '/'
+    }
   };
   return {
     title: t('title'),

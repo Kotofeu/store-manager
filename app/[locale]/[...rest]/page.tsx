@@ -1,4 +1,4 @@
-import { notFound } from '@/shared/i18n';
+import { notFound } from 'next/navigation';
 
 export default function CatchAllPage() {
   notFound();
