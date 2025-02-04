@@ -1,18 +1,14 @@
 import { Metadata } from 'next';
-import { ReactNode } from 'react';
+import { FC, ReactNode } from 'react';
 
 import { getDefaultMetadata } from '@/shared/lib';
 
 import '@/app/styles/index.scss';
 
-type Props = {
+type RootLayoutProps = {
   children: ReactNode;
 };
 
-export async function generateMetadata(): Promise<Metadata> {
-  return getDefaultMetadata();
-}
+export const generateMetadata = async (): Promise<Metadata> => getDefaultMetadata();
 
-export async function RootLayout({ children }: Props) {
-  return children;
-}
+export const RootLayout: FC<RootLayoutProps> = async ({ children }) => children;

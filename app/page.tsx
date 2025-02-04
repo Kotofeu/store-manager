@@ -1,5 +1,8 @@
 import { redirect } from 'next/navigation';
+import { FC } from 'react';
 
-export default function RootPage() {
+const RootPage: FC = () => {
   redirect('/en');
-}
+};
+
+export default RootPage;

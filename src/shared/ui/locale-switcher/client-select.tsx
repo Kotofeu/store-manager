@@ -1,17 +1,17 @@
 'use client';
 
-import { ChangeEvent, ReactNode, useTransition } from 'react';
+import { ChangeEvent, FC, ReactNode, useTransition } from 'react';
 import { useParams } from 'next/navigation';
 
 import { Locale, usePathname, useRouter } from '@/shared/i18n';
 
-type Props = {
+type SwitcherSelectProps = {
   children: ReactNode;
   defaultValue: string;
   label: string;
 };
 
-export function LocaleSwitcherSelect({ children, defaultValue, label }: Props) {
+export const LocaleSwitcherSelect: FC<SwitcherSelectProps> = ({ children, defaultValue, label }) => {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
   const pathname = usePathname();
@@ -38,4 +38,4 @@ export function LocaleSwitcherSelect({ children, defaultValue, label }: Props) {
       <span className='pointer-events-none absolute right-2 top-[8px]'>⌄</span>
     </label>
   );
-}
+};

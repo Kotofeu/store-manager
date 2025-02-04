@@ -5,7 +5,7 @@ import { routing } from '@/shared/i18n';
 
 const handleI18nRouting = createMiddleware(routing);
 
-export default function middleware(request: NextRequest) {
+const middleware = (request: NextRequest) => {
   const { pathname } = request.nextUrl;
   const shouldHandle =
     pathname === '/' ||
@@ -16,4 +16,6 @@ export default function middleware(request: NextRequest) {
   }
 
   return handleI18nRouting(request);
-}
+};
+
+export default middleware;

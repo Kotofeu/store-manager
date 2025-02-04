@@ -14,7 +14,7 @@ import { getTranslations } from 'next-intl/server';
   8. Настроить share_target для запросов и scope
   9. Настроить страницы shortcuts
 */
-export default async function manifest(): Promise<MetadataRoute.Manifest> {
+const manifest = async (): Promise<MetadataRoute.Manifest> => {
   const locale = 'en';
   const t = await getTranslations({ locale, namespace: 'Manifest' });
   return {
@@ -221,4 +221,6 @@ export default async function manifest(): Promise<MetadataRoute.Manifest> {
     },
     lang: locale
   };
-}
+};
+
+export default manifest;

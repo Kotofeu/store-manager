@@ -6,12 +6,12 @@ import { FC, ReactNode } from 'react';
 import { titleFont, textFont } from '@/app/fonts';
 import { LocaleSwitcher } from '@/shared/ui/locale-switcher';
 
-interface Props {
+interface MainProviderProps {
   locale: string;
   children: ReactNode;
 }
 
-export const MainProvider: FC<Props> = async ({ locale, children }) => {
+export const MainProvider: FC<MainProviderProps> = async ({ locale, children }) => {
   setRequestLocale(locale);
   const messages = await getMessages();
   return (
@@ -19,7 +19,7 @@ export const MainProvider: FC<Props> = async ({ locale, children }) => {
       <body>
         <ThemeProvider>
           <NextIntlClientProvider messages={messages}>
-            <LocaleSwitcher></LocaleSwitcher>
+            <LocaleSwitcher />
             {children}
           </NextIntlClientProvider>
         </ThemeProvider>
