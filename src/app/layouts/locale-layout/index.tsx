@@ -1,12 +1,9 @@
-import { NextIntlClientProvider } from 'next-intl';
-import { getMessages, setRequestLocale } from 'next-intl/server';
 import { ReactNode } from 'react';
-import { ThemeProvider } from 'next-themes';
 import { notFound } from 'next/navigation';
 
 import { routing } from '@/shared/i18n';
-import { titleFont, textFont } from '@/app/fonts';
 import { getDefaultMetadata } from '@/shared/lib';
+import { MainProvider } from '@/app/providers/main-provider';
 
 type Props = {
   children: ReactNode;
@@ -31,15 +28,6 @@ export async function LocateLayout({ children, params }: Props) {
   if (!routing.locales.includes(locale as any)) {
     notFound();
   }
-  setRequestLocale(locale);
-  const messages = await getMessages();
-  return (
-    <html lang={locale} suppressHydrationWarning className={`${titleFont.variable} ${textFont.variable}`}>
-      <body>
-        <ThemeProvider>
-          <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
-        </ThemeProvider>
-      </body>
-    </html>
-  );
+
+  return <MainProvider locale={locale}>{children}</MainProvider>;
 }
