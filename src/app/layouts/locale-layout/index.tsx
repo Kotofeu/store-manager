@@ -1,18 +1,15 @@
-import { FC, ReactNode } from 'react';
+import { FC } from 'react';
 import { notFound } from 'next/navigation';
+import { setRequestLocale } from 'next-intl/server';
 
 import { routing } from '@/shared/i18n';
+import { RootProvider } from '@/app/providers/root-provider';
+import { BaseLayoutProps } from '@/shared/types';
 import { getDefaultMetadata } from '@/shared/lib';
-import { MainProvider } from '@/app/providers/main-provider';
-
-type LocateLayoutProps = {
-  children: ReactNode;
-  params: Promise<{ locale: string }>;
-};
 
 export const generateStaticParams = () => routing.locales.map(locale => ({ locale }));
 
-export const generateMetadata = async ({ params }: Omit<LocateLayoutProps, 'children'>) => {
+export const generateMetadata = async ({ params }: Omit<BaseLayoutProps, 'children'>) => {
   const { locale } = await params;
   return getDefaultMetadata(
     '/',
@@ -21,11 +18,11 @@ export const generateMetadata = async ({ params }: Omit<LocateLayoutProps, 'chil
   );
 };
 
-export const LocateLayout: FC<LocateLayoutProps> = async ({ children, params }) => {
+export const LocateLayout: FC<BaseLayoutProps> = async ({ children, params }) => {
   const { locale } = await params;
   if (!routing.locales.includes(locale as any)) {
     notFound();
   }
-
-  return <MainProvider locale={locale}>{children}</MainProvider>;
+  setRequestLocale(locale);
+  return <RootProvider locale={locale}>{children}</RootProvider>;
 };

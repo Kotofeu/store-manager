@@ -11,7 +11,7 @@ type SwitcherSelectProps = {
   label: string;
 };
 
-export const LocaleSwitcherSelect: FC<SwitcherSelectProps> = ({ children, defaultValue, label }) => {
+export const ClientSelect: FC<SwitcherSelectProps> = ({ children, defaultValue, label }) => {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
   const pathname = usePathname();

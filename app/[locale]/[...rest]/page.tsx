@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
+import { FC } from 'react';
 
-const CatchAllPage = () => {
+const CatchAllPage: FC = () => {
   notFound();
 };
 

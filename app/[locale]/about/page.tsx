@@ -1,7 +1,13 @@
 import { useTranslations } from 'next-intl';
-import { FC } from 'react';
+import { FC, use } from 'react';
+import { setRequestLocale } from 'next-intl/server';
 
-const HomePage: FC = () => {
+import { BasePageProps } from '@/shared/types';
+
+const HomePage: FC<BasePageProps> = ({ params }) => {
+  const { locale } = use(params);
+  setRequestLocale(locale);
+
   const t = useTranslations('Metadata');
   return (
     <div>

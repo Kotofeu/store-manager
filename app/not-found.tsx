@@ -1,8 +1,8 @@
 import { FC } from 'react';
 
+import { RootProvider } from '@/app/providers/root-provider';
 import { routing } from '@/shared/i18n';
-import { MainProvider } from '@/app/providers/main-provider';
 
-const GlobalNotFound: FC = async () => <MainProvider locale={routing.defaultLocale}>404</MainProvider>;
+const GlobalNotFound: FC = () => <RootProvider locale={routing.defaultLocale}>404</RootProvider>;
 
 export default GlobalNotFound;

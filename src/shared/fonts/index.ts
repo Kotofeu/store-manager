@@ -4,12 +4,14 @@ export const textFont = Open_Sans({
   subsets: ['latin', 'cyrillic'],
   weight: ['300', '400', '500'],
   variable: '--text-font',
-  display: 'swap'
+  display: 'swap',
+  preload: true
 });
 
 export const titleFont = Montserrat({
   subsets: ['latin', 'cyrillic'],
   weight: ['300', '400', '500', '600', '800'],
   variable: '--title-font',
-  display: 'swap'
+  display: 'swap',
+  preload: true
 });

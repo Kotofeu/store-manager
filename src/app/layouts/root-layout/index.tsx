@@ -4,6 +4,8 @@ import { FC, ReactNode } from 'react';
 import { getDefaultMetadata } from '@/shared/lib';
 
 import '@/app/styles/index.scss';
+// Without this, fonts do not work correctly on the page not found
+import '@/shared/fonts';
 
 type RootLayoutProps = {
   children: ReactNode;
@@ -11,4 +13,4 @@ type RootLayoutProps = {
 
 export const generateMetadata = async (): Promise<Metadata> => getDefaultMetadata();
 
-export const RootLayout: FC<RootLayoutProps> = async ({ children }) => children;
+export const RootLayout: FC<RootLayoutProps> = ({ children }) => children;
