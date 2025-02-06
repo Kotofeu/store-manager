@@ -5,7 +5,7 @@ import { getDefaultMetadata } from '@/shared/lib';
 
 import '@/app/styles/index.scss';
 // Without this, fonts do not work correctly on the page not found
-import '@/shared/fonts';
+import '@/app/fonts';
 
 type RootLayoutProps = {
   children: ReactNode;

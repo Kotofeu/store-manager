@@ -14,6 +14,12 @@ const HomePage: FC<BasePageProps> = ({ params }) => {
   return (
     <main>
       <Link href={'/about'}>ABOUT</Link>
+      <Link href={'/'} locale={'ru'}>
+        RU
+      </Link>
+      <Link href={'/'} locale={'en'}>
+        EN
+      </Link>
       <div style={{ width: 300, overflowX: 'scroll', backgroundColor: 'var(--secondary-color)' }}>
         <div style={{ width: 600 }}></div>
       </div>

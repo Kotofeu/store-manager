@@ -4,7 +4,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { FC, ReactNode } from 'react';
 
 import { LocaleSwitcher } from '@/shared/ui/locale-switcher';
-import { textFont, titleFont } from '@/shared/fonts';
+import { textFont, titleFont } from '@/app/fonts';
 
 interface RootProviderProps {
   locale: string;
@@ -16,12 +16,12 @@ export const RootProvider: FC<RootProviderProps> = async ({ locale, children }) 
   return (
     <html lang={locale} suppressHydrationWarning>
       <body className={`${titleFont.variable} ${textFont.variable}`}>
-        <NextIntlClientProvider messages={messages}>
-          <ThemeProvider>
+        <ThemeProvider>
+          <NextIntlClientProvider messages={messages}>
             <LocaleSwitcher />
             {children}
-          </ThemeProvider>
-        </NextIntlClientProvider>
+          </NextIntlClientProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
