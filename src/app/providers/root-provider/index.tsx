@@ -3,8 +3,8 @@ import { ThemeProvider } from 'next-themes';
 import { NextIntlClientProvider } from 'next-intl';
 import { FC, ReactNode } from 'react';
 
-import { LocaleSwitcher } from '@/shared/ui/locale-switcher';
 import { textFont, titleFont } from '@/app/fonts';
+import { Header } from '@/widgets/header';
 
 interface RootProviderProps {
   locale: string;
@@ -16,12 +16,12 @@ export const RootProvider: FC<RootProviderProps> = async ({ locale, children }) 
   return (
     <html lang={locale} suppressHydrationWarning>
       <body className={`${titleFont.variable} ${textFont.variable}`}>
-        <ThemeProvider>
-          <NextIntlClientProvider messages={messages}>
-            <LocaleSwitcher />
+        <NextIntlClientProvider messages={messages}>
+          <ThemeProvider>
+            <Header />
             {children}
-          </NextIntlClientProvider>
-        </ThemeProvider>
+          </ThemeProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

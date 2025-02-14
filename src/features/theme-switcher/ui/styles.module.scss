@@ -1,0 +1,10 @@
+.switcher{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  &__button{
+    width: 25px;
+    height: 25px;
+  }
+}

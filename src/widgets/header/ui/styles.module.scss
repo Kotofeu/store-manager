@@ -1,0 +1,23 @@
+.header{
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--secondary-color);
+
+  &__wrapper{
+    margin: 0 auto;
+    padding: 0 20px;
+    max-width: var(--container-width);
+    width: 100%;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__switchers{
+    display: flex;
+  }
+}

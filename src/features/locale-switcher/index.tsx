@@ -3,7 +3,7 @@ import { FC } from 'react';
 
 import { routing } from '@/shared/i18n';
 
-import { ClientSelect } from './client-select';
+import { ClientSelect } from './client-switcher';
 
 export const LocaleSwitcher: FC = () => {
   const locale = useLocale();

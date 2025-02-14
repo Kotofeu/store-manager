@@ -4,7 +4,7 @@ import { setRequestLocale } from 'next-intl/server';
 
 import { Link } from '@/shared/i18n';
 import { BasePageProps } from '@/shared/types';
-import { ThemeSwitcher } from '@/shared/ui/theme-switcher';
+import { ThemeSwitcher } from '@/features/theme-switcher';
 
 const HomePage: FC<BasePageProps> = ({ params }) => {
   const { locale } = use(params);
