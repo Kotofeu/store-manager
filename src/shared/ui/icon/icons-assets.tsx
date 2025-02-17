@@ -47,7 +47,16 @@ export const DarkMode: FC<IconsAssetsProps> = ({ color = 'var(--icon)' }) => (
 export const SystemMode: FC<IconsAssetsProps> = ({ color = 'var(--icon)' }) => (
   <svg width='24' height='24' viewBox='0 0 24 24' fill='none' stroke={color} strokeWidth='2'>
     <circle cx='12' cy='12' r='11' />
-    <text x='12' y='18' textAnchor='middle' fill={color} fontSize='17' strokeWidth='1' fontFamily='Arial'>
+    <text
+      x='12'
+      y='18'
+      textAnchor='middle'
+      fontWeight='bold'
+      fill='none'
+      fontSize='17'
+      strokeWidth='1'
+      fontFamily='Arial'
+    >
       S
     </text>
   </svg>

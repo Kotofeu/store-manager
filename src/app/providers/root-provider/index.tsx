@@ -16,12 +16,12 @@ export const RootProvider: FC<RootProviderProps> = async ({ locale, children }) 
   return (
     <html lang={locale} suppressHydrationWarning>
       <body className={`${titleFont.variable} ${textFont.variable}`}>
-        <NextIntlClientProvider messages={messages}>
-          <ThemeProvider>
+        <ThemeProvider disableTransitionOnChange>
+          <NextIntlClientProvider messages={messages}>
             <Header />
             {children}
-          </ThemeProvider>
-        </NextIntlClientProvider>
+          </NextIntlClientProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
